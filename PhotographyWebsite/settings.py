@@ -39,6 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
      #local
     'accounts',
+    'pages',
+
+    #3rd party
+    'crispy_forms',
+    #'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -127,6 +132,9 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+#CRISPY_TEMPLATE_PACK = 'bootstrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 # blo_project/setting.py
