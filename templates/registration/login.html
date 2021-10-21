@@ -4,7 +4,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div style="position: absolute; left:50%; top: 50%; transform: translate(-50%, -50%);">
+<div class="centeredForm">
     <h2>Log In</h2>
     <form method="post">
         {% csrf_token %}
@@ -27,6 +27,26 @@
 
         <!-- Submit button -->
         <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+        <!-- Register buttons -->
+        <div class="text-center">
+            <p>Not a member? <a href="#!">Register</a></p>
+            <p>or sign up with:</p>
+            <button type="button" class="btn btn-primary btn-floating mx-1 btn-circle">
+                <i class="fab fa-facebook-f"></i>
+            </button>
+
+            <button type="button" class="btn btn-primary btn-floating mx-1 btn-circle">
+                <i class="fab fa-google"></i>
+            </button>
+
+            <button type="button" class="btn btn-primary btn-floating mx-1 btn-circle">
+                <i class="fab fa-twitter"></i>
+            </button>
+
+            <button type="button" class="btn btn-primary btn-floating mx-1 btn-circle">
+                <i class="fab fa-github"></i>
+            </button>
+        </div>
     </form>
 
 </div>

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
      #local
     'accounts',
     'pages',
+    'photos.apps.PhotosConfig',
 
     #3rd party
     'crispy_forms',
@@ -125,6 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))] # new
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
