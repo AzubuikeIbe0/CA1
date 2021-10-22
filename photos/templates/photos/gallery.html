@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
+            <div class="card ml-3">
                 <div class="card-header">
                     Gallery
                 </div>
@@ -14,6 +14,9 @@
                     <li class="list-group-item">Cras justo odio</li>
                     <li class="list-group-item">Dapibus ac facilisis in</li>
                     <li class="list-group-item">Vestibulum at eros</li>
+                
+                      <a href="{% url 'add' %}" class="btn btn-sm btn-outline-secondary btn-small m-1">Upload Photo</a>
+                 
                 </ul>
             </div>
         </div>
@@ -27,12 +30,67 @@
                         <p class="card-text">Yellow Gang</p>
                         <div class="d-flex justify-content-between align-items-center">
                           <div class="btn-group">
-                            <a href="#" type="button" class="btn btn-sm btn-outline-secondary">View</a>
+                            <a href="{% url 'photo' 5 %}" type="button" class="btn btn-sm btn-outline-secondary">View</a>
                             <a href="#" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
                           </div>
                           <small class="text-muted">9 mins</small>
                         </div>
                       </div>
+                      
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="card-img-top" src="https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w600/2020/09/Frame-47.png" alt="Card image cap">
+          
+                      <div class="card-body">
+                        <p class="card-text">Yellow Gang</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="{% url 'photo' 5 %}" type="button" class="btn btn-sm btn-outline-secondary">View</a>
+                            <a href="#" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
+                          </div>
+                          <small class="text-muted">9 mins</small>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="card-img-top" src="https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w600/2020/09/Frame-47.png" alt="Card image cap">
+          
+                      <div class="card-body">
+                        <p class="card-text">Yellow Gang</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="{% url 'photo' 5 %}" type="button" class="btn btn-sm btn-outline-secondary">View</a>
+                            <a href="#" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
+                          </div>
+                          <small class="text-muted">9 mins</small>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="card-img-top" src="https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w600/2020/09/Frame-47.png" alt="Card image cap">
+          
+                      <div class="card-body">
+                        <p class="card-text">Yellow Gang</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="{% url 'photo' 5 %}" type="button" class="btn btn-sm btn-outline-secondary">View</a>
+                            <a href="#" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
+                          </div>
+                          <small class="text-muted">9 mins</small>
+                        </div>
+                      </div>
+                      
                     </div>
                   </div>
             </div>
