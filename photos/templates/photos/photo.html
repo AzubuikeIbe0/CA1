@@ -7,9 +7,9 @@
     <div class="row justify-content-center">
         <div class="col">
             <a class="btn btn-sm btn-outline-secondary" href="{% url 'gallery' %}">Go Back</a>
-            <div style="height: 90vh;">
-                <img style="max-width: 100%; max-height: 100%;" src="https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w600/2020/09/Frame-47.png" alt="">
-                <p>This is just a test image to see what it looks like, you know what I mean?</p>
+            <div class="fullPic">
+                <img src="{{photo.image.url}}" alt="">
+                <p>{{photo.description}}</p>
             </div>
         </div>
     </div>
