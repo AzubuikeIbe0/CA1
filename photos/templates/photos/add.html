@@ -3,19 +3,19 @@
 {% block title %}Add Photo{% endblock title %}
 
 {% block content %}
-<div class="container mb-5">
+<div class="container my-5">
     <div class="row justify-content-center">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <a class="btn btn-sm btn-outline-secondary" href="{% url 'gallery' %}">Go Back</a>
-            <div class="card mt-5">
+            <div class="card p-5 mt-4">
                 <form method="post" action="" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <div class="form-group m-4">
+                    <div class="form-group m-6">
                         <label >Description</label>
                         <input name="description" type="text" class="form-control" placeholder="Write Image description here" required>
                       </div>
 
-                      <div class="form-group m-4">
+                      <div class="form-group m-6">
                         <label >Choose a location</label>
                         <select name="category" class="form-control">
                             <option value="none">Choose a location...</option>
@@ -25,17 +25,17 @@
                         </select>
                       </div>
 
-                      <div class="form-group m-4">
+                      <div class="form-group m-6">
                         <label >Create new location</label>
                         <input name="new-location" type="text" class="form-control" placeholder="Create new location">
                       </div>
                       
-                    <div class="form-group m-4">
+                    <div class="form-group m-6">
                       <label >Upload Photo</label>
                       <input name="image" type="file" class="form-control-file" required>
                     </div>
 
-                    <button type="submit" class="btn btn-sm btn-outline-primary btn-small m-4"> Upload</button>
+                    <button type="submit" class="btn btn-sm btn-outline-primary btn-small m-6"> Upload</button>
                   </form>
             </div>
         </div>
