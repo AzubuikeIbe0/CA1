@@ -11,9 +11,12 @@
                     Photo Locations
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">All Locations</li>
+                    <li class="list-group-item"><a href="{% url 'gallery' %}">All Locations</a></li>
                     {% for category in categories %}
-                    <li class="list-group-item">{{category.name}}</li>
+                    <li class="list-group-item">
+                      <a href="{% url 'gallery' %}?category={{category.name}}">{{category.name}}
+                      </a>
+                    </li>
                     {% endfor %}
                 
                     <a href="{% url 'add' %}" class="btn btn-sm btn-outline-primary btn-small m-1">Upload Photo</a>
@@ -27,7 +30,7 @@
               {% for photo in photos %}
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
-                        <img class="card-img-top img-thumbnail" src="{{photo.image.url}}" alt="Card image cap">
+                        <img class="card-img-top imag-thumbnail" src="{{photo.image.url}}" alt="Card image cap">
           
                       <div class="card-body">
                         <p class="card-text">{{photo.category.name}}</p>

@@ -3,6 +3,8 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
 }
     .navbar-expand-sm {
         justify-content: space-between;
@@ -46,8 +48,9 @@
         z-index: 10000;
     }
 
-    .img-thumbnail {
+    .imag-thumbnail {
       max-width: 300px;
+      max-height: 250px;
       background-size: cover;
       background-repeat: no-repeat;
     }
