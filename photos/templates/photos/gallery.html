@@ -4,51 +4,55 @@
 
 {% block content %}
 <div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="card ml-3">
-                <div class="card-header">
-                    Photo Locations
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a href="{% url 'gallery' %}">All Locations</a></li>
-                    {% for category in categories %}
-                    <li class="list-group-item">
-                      <a href="{% url 'gallery' %}?category={{category.name}}">{{category.name}}
-                      </a>
-                    </li>
-                    {% endfor %}
-                
-                    <a href="{% url 'add' %}" class="btn btn-sm btn-outline-primary btn-small m-1">Upload Photo</a>
-                 
-                </ul>
-            </div>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card ml-3">
+        <div class="card-header">
+          Photo Locations
         </div>
-        <div class="col-md-9">
-            <div class="row">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><a href="{% url 'gallery' %}">All Locations</a></li>
+          {% for category in categories %}
+          <li class="list-group-item">
+            <a href="{% url 'gallery' %}?category={{category.name}}">{{category.name}}
+            </a>
+          </li>
+          {% endfor %}
 
-              {% for photo in photos %}
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="card-img-top imag-thumbnail" src="{{photo.image.url}}" alt="Card image cap">
-          
-                      <div class="card-body">
-                        <p class="card-text">{{photo.category.name}}</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class="btn-group">
-                            <a href="{% url 'photo' photo.id %}" type="button" class="btn btn-sm btn-outline-secondary">View</a>
-                            <a href="#" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
-                          </div>
-                          <small class="text-muted">9 mins</small>
-                        </div>
-                      </div>
-                      
-                    </div>
-                  </div>
-              {% endfor %}
-            </div>
-        </div>
+          <a href="{% url 'add' %}" class="btn btn-sm btn-outline-primary btn-small m-1">Upload Photo</a>
+
+        </ul>
+      </div>
     </div>
+    <div class="col-md-9">
+      <div class="row">
+
+        {% for photo in photos %}
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <div class="photo-container">
+              <img class="card-img-top imag-thumbnail" src="{{photo.image.url}}" alt="Card image cap">
+              <small class="imag-author">{{photo.author}}</small>
+            </div>
+            <div class="card-body">
+
+              <p class="card-text">{{photo.title}}</p>
+              <small class="card-text">{{photo.category.name}}</small>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group  mt-2">
+                  <a href="{% url 'photo' photo.id %}" type="button" class="btn btn-sm btn-outline-secondary">View</a>
+                  <a href="#" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
+                </div>
+                <small class="text-muted photo-date">{{photo.date}}</small>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock content %}
