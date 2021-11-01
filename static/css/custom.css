@@ -52,6 +52,29 @@
   box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
   }
 
+  
+  .nav-item .active {
+    position: relative;
+}
+
+.nav-item .active::before {
+    
+  background: #000;
+
+}
+.nav-item .active::before {
+
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  width: 60px;
+  height: 4px;
+  background: #000;
+
+}
+
     .float-right {
         display: flex; 
         flex-direction: column;  
@@ -63,6 +86,33 @@
         flex-direction: row;  
         flex-wrap: wrap;
     }
+
+    .container-fluid {
+      margin-left: 0;
+    }
+
+   .sect-img .col-lg-2, 
+   .sect-img .col-md-12 {
+      width: 300px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .container-fluid section { 
+      margin: 0;
+    }
+
+    .row {
+      margin: 0;
+  }
+
+  .col-md-8 {
+    padding: 0;
+  }
+
+  .goUp {
+    font-size: 48px;
+  }
 
 
    .text-center .btn-circle {
@@ -87,8 +137,7 @@
     }
 
     .imag-thumbnail {
-
-      height: 200px;
+      height: 400px;
       object-fit: cover;
     }
 
@@ -112,7 +161,7 @@
     .imag-author {
         position: absolute;
         top: 10px;
-        right: 10px;
+        right: 25px;
         border: 1px solid #e3e3e3;
         max-width: 80px;
         padding: 0 5px;
@@ -226,6 +275,15 @@
 }
 
 
+
+ /****************************************************************************************************************
+                                                        TEST GALLERY
+
+  *****************************************************************************************************************/
+
+  .col-4:hover {
+    background: linear-gradient(to right, rgba(102, 126, 234, 0.5), rgba(118, 75, 162, 0.5))
+  }
 
 
 

@@ -4,13 +4,34 @@
 
 {% block content %}
 
-<div class="container my-5">
+<div class="container-fluid my-5">
     <div class="row justify-content-center">
         <div class="col">
             <a class="btn btn-sm btn-outline-secondary" href="{% url 'gallery' %}">Go Back</a>
-            <div class="fullPic">
-                <img src="{{photo.image.url}}" alt="">
-                <p>{{photo.description}}</p>
+
+            <div class="card my-2" style="min-width: 800px;">
+                <div class="row g-0">
+                    <div class="col-md-9">
+                        <img src="{{photo.image.url}}" alt="" onclick="enlarge(this)" style="width: 800px;" class="img-fluid" />
+                        <small class="imag-author">{{photo.author}}</small>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card-body">
+                            <div class="card-header">
+                                <h5 class="card-title">{{photo.title}}</h5>
+                            </div>
+                            
+                            <p class="brand-text mt-3">{{photo.description}}</p>
+                            <p class="card-text py-4">
+                                This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted photo-date"> Last updated {{photo.date}}</small>
+                </div>
             </div>
         </div>
     </div>
