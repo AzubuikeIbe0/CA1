@@ -3,6 +3,11 @@
 {% block title %}Add Photo{% endblock title %}
 
 {% block content %}
+<section class="banner2 mtop pb-5" id="banner">
+  <div class="col-md-12 mx-auto" >
+      <h1 class="display-1 text-center text-white fw-bold">Add New Photo</h1>
+  </div>
+</section>
 <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -10,6 +15,10 @@
             <div class="card p-5 mt-4">
                 <form method="post" action="" enctype="multipart/form-data">
                     {% csrf_token %}
+                    <div class="form-group m-6">
+                      <label >Title</label>
+                      <input name="title" type="text" class="form-control" placeholder="What is the title?" required>
+                    </div>
                     <div class="form-group m-6">
                         <label >Description</label>
                         <input name="description" type="text" class="form-control" placeholder="Write Image description here" required>

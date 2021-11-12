@@ -1,3 +1,4 @@
+from django.db.models import fields
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DetailView
 from .forms import CustomUserCreationForm
@@ -13,7 +14,7 @@ class SignUpView(CreateView):
 class UserEditView(UpdateView):
     model = Profile
     template_name = 'registration/edit_profile.html'
-    fields = ['Hobbies', 'Nickname', 'City', 'Star']
+    fields = ['id','title', 'image', 'description', 'date', 'author', 'category', 'fav_author' 'hobbies', 'city', 'phone', 'website']
     success_url = reverse_lazy('home')
 
     def get_object(self):
@@ -25,3 +26,4 @@ class ProfilePageView(DetailView):
 
     def get_object(self):
         return self.request.user
+

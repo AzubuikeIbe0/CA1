@@ -11,10 +11,10 @@
     scroll-behavior: smooth;
   } 
 
-  body {
+/*   body {
     padding: 100px 0;
   }
-  
+   */
   :root {
     --primary-color: #0062a8;
     --secondary-color: #F26C4F;
@@ -74,7 +74,7 @@
 }
 
 
-#logo {
+/* #logo {
   color: var(--dark-color);
   text-transform: uppercase;
   font-size: 24px;
@@ -88,7 +88,7 @@
     font-weight: 900;
     font-family: 'Agency FB', sans-serif;
 }
-
+ */
 
   /****************************************************************************************************************
                                                     HOME BANNER
@@ -104,26 +104,44 @@
     display: flex;
     justify-items: center;
     align-items: center;
-    background-image: url("../images/photo.jpg");
+    background-image: url("../images/thanos.jpg");
     background-size: cover;
     top: 100;
     transition: 0.2s;
 }
 
-.banner .content {
+.banner2 {
+  position: relative;
+  width: 100%;
+  min-height: 50vh;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  background-image: url("../images/thanos.jpg");
+  background-size: cover;
+  top: 100;
+  transition: 0.2s;
+}
+
+.banner .content, .banner2 .content {
     max-width: 900px;
     text-align: center;
     margin: auto;
 }
 
-.banner .content h2 {
+.banner .content h2, .banner2 .content h2 {
     font-size: 5em;
     color: #fff;
 }
 
-.banner .content p {
+.banner .content p, .banner2 .content p {
     font-size: 1em;
     color: #fff;
+}
+
+.bk_ap {
+  border-radius: 30px;
+  padding: 10px 40px;
 }
 
 

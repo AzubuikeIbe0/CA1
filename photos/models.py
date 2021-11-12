@@ -14,9 +14,10 @@ class Category(models.Model):
 
 
 class Photo(models.Model):
-    title = models.CharField(max_length=30, default="Photo Title")
+    id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=30,  null=True, blank=True, default='')
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
-    image = models.ImageField(null=False, blank=False)
+    image = models.ImageField(null=True, blank=True, default='')
     description = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(
@@ -31,3 +32,20 @@ class Photo(models.Model):
 
     def get_absolute_url(self):
         return reverse('photo', args=[str(self.id)])
+
+class Comment(models.Model):
+    photo = models.ForeignKey(
+        Photo,
+        on_delete=models.CASCADE,
+    )
+    comment = models.CharField(max_length=100)
+    author = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,
+    )
+
+    def __str__(self):
+        return self.comment
+
+    def get_absolute_url(self):
+        return reverse('gallery')

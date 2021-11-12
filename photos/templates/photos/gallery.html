@@ -3,7 +3,7 @@
 {% block title %}Photo Gallery{% endblock title %}
 
 {% block content %}
-<div class="container-fluid no-gutters">
+<div class="container-fluid no-gutters mtop">
   <div class="row">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -42,7 +42,7 @@
 
     </div>
 
-    <div class="col-6 no-gutters ">
+    <div class="col-6 col-md-6 col-sm-4 no-gutters ">
 
 
       <div class="my-3  justify-content-center text-dark navbar-collapse">
@@ -71,7 +71,7 @@
   <div class="row no-gutters">
     {% for photo in photos %}
 
-    <div class="col-4 no-gutters border">
+    <div class="col-md-4 col-sm-6 col-xs-6 no-gutters border">
       <div class="card shadow-0 m-5">
         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
           <img src="{{photo.image.url}}" class="img-fluid card-img-top imag-thumbnail" />
@@ -88,7 +88,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group  mt-2">
             <a href="{% url 'photo' photo.id %}" type="button" class="btn btn-sm btn-outline-secondary">View</a>
-            <a href="#" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
+            <a href="{% url 'photo_edit' photo.id %}" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
           </div>
           <small class="text-muted photo-date">Updated: {{photo.date}}</small>
         </div>
@@ -104,7 +104,7 @@
     <!-- Section: Images -->
     <section class="sect-img no-gutters">
       <div class="row">
-        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+        <div class="col-md-2 col-xs-6 col-sm-6 mb-4">
           <div class="bg-image hover-overlay hover-zoom hover-shadow ripple" data-ripple-color="light">
             <img src="../images/photo.jpg" class="w-100" />
             <a href="#!">
@@ -158,7 +158,10 @@
   </div>
 
   <!-- Grid container -->
-
+  <ul class="pager">
+    <li class="previous"><a href="#">Previous</a></li>
+    <li class="next"><a href="#">Next</a></li>
+  </ul>
 
 
 

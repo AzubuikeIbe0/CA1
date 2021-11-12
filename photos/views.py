@@ -1,7 +1,20 @@
 from django.shortcuts import render, redirect
 from .models import Category, Photo
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.views.generic import DetailView
+from django.views.generic.edit import UpdateView, DeleteView, CreateView
+from django.urls import reverse_lazy
+
 
 # Create your views here.
+#class PhotoCreateView(CreateView, LoginRequiredMixin, UserPassesTestMixin):
+ #   model = Photo
+ #   fields = ('title', 'category')
+#    template_name = 'add.html'
+
+#    def form_valid(self, form): 
+ #       form.instance.author = self.request.user
+ #       return super().form_valid(form)
 
 def gallery(request):
     category = request.GET.get('category')
@@ -44,6 +57,25 @@ def addPhoto(request):
         )
         return redirect('gallery')
 
-
     context = {'categories': categories}
     return render(request, 'photos/add.html', context)
+
+
+class editPhoto(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Photo
+    fields = ('title', 'category', 'image', 'description' )
+    template_name = 'photo_edit.html'
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user
+
+class deletePhoto(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Photo
+    template_name = 'photo_delete.html'
+    success_url = reverse_lazy('photo_delete')
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user
+
