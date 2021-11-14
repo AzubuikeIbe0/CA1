@@ -33,19 +33,32 @@ class Photo(models.Model):
     def get_absolute_url(self):
         return reverse('photo', args=[str(self.id)])
 
+
+
 class Comment(models.Model):
     photo = models.ForeignKey(
         Photo,
         on_delete=models.CASCADE,
+        related_name='comments'
     )
-    comment = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
     author = models.ForeignKey(
         get_user_model(),
         on_delete=models.CASCADE,
+        default=1
     )
+    comment = models.TextField(default=False)
+    body = models.TextField(default=False)
+    url = models.TextField(default=False)
+    created_on = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=False)
+
+    class meta:
+        ordering = ['created_on']
 
     def __str__(self):
-        return self.comment
+        return 'Comment {} by {}'.format(self.body, self.author)
+
 
     def get_absolute_url(self):
-        return reverse('gallery')
+        return reverse('photo')

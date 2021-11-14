@@ -1,40 +1,129 @@
 {% extends 'base.html' %}
-{% block title %}Home{% endblock title %}
+{% block title %}Contact Me{% endblock title %}
 
 {% block content %}
-<section class="banner mtop pb-5" id="banner">
-    <div class="content">
-        <h2>Always Choose Good</h2>
-        <p>Lorem ipsum dolor sit amet, consectur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dalore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud.</p>
-        <a href="{% url 'booking' %}" class="btn btn-light btn-rounded bk_ap">Book Appointment</a>
+{% load crispy_forms_tags %}
+
+<section class="banner2 mtop pb-5" id="banner">
+    <div class="col-md-12 col-sm-12 col-xs-12 mx-auto">
+        <h1 class="display-1 text-center text-white fw-bold">Photo Edit Page</h1>
     </div>
 </section>
 
-<section class="about" id="about">
-    <div class="row">
-    <div class="col50">
-        <h2 class="titleText"><span>A</span>bout Us</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu luctus tortor. 
-            Praesent et faucibus mi, ut finibus metus. Integer pulvinar nulla maximus 
-            velit sollicitudin consequat. Phasellus efficitur fermentum nulla nec tincidunt.
-             Maecenas sed erat a tortor fringilla tempor at vitae justo. Fusce quis pharetra lorem. 
-             Donec lobortis lorem pellentesque nibh laoreet, eget pretium massa posuere. 
-             Maecenas tristique vel est at vehicula. Nunc dolor justo, fermentum eget odio eget, <br><br>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu luctus tortor. 
-            Praesent et faucibus mi, ut finibus metus. Integer pulvinar nulla maximus 
-            velit sollicitudin consequat. Phasellus efficitur fermentum nulla nec tincidunt.
-             Maecenas sed erat a tortor fringilla tempor at vitae justo. Fusce quis pharetra lorem. 
-             Donec lobortis lorem pellentesque nibh laoreet, eget pretium massa posuere.  </p>
-        </div>
-    
+<main role="main" class="container-fluid m-5">
 
-        <div class="col50">
-            <div class="imgBx">
-                <img src="../images/laura.jpg" alt="">
+    <div class="row">
+        <div class="col-md-7 blog-main m-5 mtop">
+            <h1 class=" mb-5">Booking Form</h1>
+            <hr>
+            <form action="index.html" method="post">
+                <h4><span class="rounded-circle bg-primary text-white" style="padding:0 12px;">1</span>Your basic details</h4>
+                <fieldset>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputName4">Name</label>
+                            <input type="text" id="form6Example1" class="form-control" placeholder="Name" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Email</label>
+                            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputPhone">Phone</label>
+                            <input type="text" class="form-control" id="inputPhone" placeholder="087-6598-944">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputAddress">Address</label>
+                            <input type="text" class="form-control" id="inputAddress"
+                                placeholder="Address">
+                        </div>
+                    </div>
+                    <hr>
+
+                </fieldset>
+
+                <fieldset>
+                    <h4><span class="rounded-circle bg-primary text-white" style="padding:0 10px;">2</span>Appointment Details</h4>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputState">Appointment for:</label>
+                            <select id="inputState" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>Wedding</option>
+                                <option>Festival</option>
+                                <option>Communion</option>
+                                <option>Personal/option>
+                                <option>Events</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputZip">Eircode</label>
+                            <input type="text" class="form-control" id="inputZip" placeholder="Eircode">
+                        </div>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="form6Example7">Appointment Description</label>
+                        <textarea class="form-control" id="form6Example7" rows="6"
+                            placeholder="I wish to get an appointment to skype for resolving a software problem."></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputDate">Date</label>
+                            <input type="date" class="form-control" name="date" value="" required></input>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputTime">Time</label>
+                            <input type="time" name="time" class="form-control" value="" required></input>
+                        </div>
+                    </div>
+                </fieldset>
+                <button type="submit" class="btn btn-primary mt-5">Request For Appointment</button>
+            </form>
+        </div><!-- /.blog-main -->
+
+        <aside class="col-md-3 blog-sidebar border-left mx-5">
+
+            <div class="p-4 mb-3 bg-light rounded">
+                <div class="">
+                    <h4 class="font-italic">{{photo.title}}</h4>
+                </div>
+
+                <small class="text-muted photo-date"> Last updated {{photo.date}} by {{photo.author}}</small>
+
+
+                <p class="brand-text mt-3">{{photo.description}}</p>
+                <p class="card-text py-4">
+                    This is a wider card with supporting text below as a natural lead-in to
+                    additional content. This content is a little bit longer.
+                </p>
             </div>
-        </div>
-    
-    </section>
+
+            <div class="p-4">
+                <h4 class="font-italic">Archives</h4>
+                <ol class="list-unstyled mb-0">
+                    <li><a href="#">March 2014</a></li>
+                    <li><a href="#">February 2014</a></li>
+                    <li><a href="#">January 2014</a></li>
+                    <li><a href="#">December 2013</a></li>
+                    <li><a href="#">November 2013</a></li>
+                    <li><a href="#">October 2013</a></li>
+                    <li><a href="#">September 2013</a></li>
+                    <li><a href="#">August 2013</a></li>
+                    <li><a href="#">July 2013</a></li>
+                    <li><a href="#">June 2013</a></li>
+                    <li><a href="#">May 2013</a></li>
+                    <li><a href="#">April 2013</a></li>
+                </ol>
+            </div>
+
+        </aside><!-- /.blog-sidebar -->
+
+    </div><!-- /.row -->
+
+</main><!-- /.container -->
+
+
+
 {% endblock content %}

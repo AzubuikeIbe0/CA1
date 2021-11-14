@@ -1,20 +1,12 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect , get_object_or_404
 from .models import Category, Photo
+from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.views.generic import DetailView
-from django.views.generic.edit import UpdateView, DeleteView, CreateView
+from django.views.generic.edit import UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
 from django.urls import reverse_lazy
+from .forms import CommentForm
 
-
-# Create your views here.
-#class PhotoCreateView(CreateView, LoginRequiredMixin, UserPassesTestMixin):
- #   model = Photo
- #   fields = ('title', 'category')
-#    template_name = 'add.html'
-
-#    def form_valid(self, form): 
- #       form.instance.author = self.request.user
- #       return super().form_valid(form)
 
 def gallery(request):
     category = request.GET.get('category')
@@ -79,3 +71,29 @@ class deletePhoto(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         obj = self.get_object()
         return obj.author == self.request.user
 
+
+
+
+def photo(request, slug):
+    template_name = 'photo.html'
+    photo = get_object_or_404(Photo, slug=slug)
+    comments = photo.comments.filter(active=True)
+    new_comment = None
+    # Comment posted
+    if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+
+            # Create Comment object but don't save to database yet
+            new_comment = comment_form.save(commit=False)
+            # Assign the current photo to the comment
+            new_comment.photo = photo
+            # Save the comment to the database
+            new_comment.save()
+    else:
+        comment_form = CommentForm()
+
+    return render(request, template_name, {'photo': photo,
+                                           'comments': comments,
+                                           'new_comment': new_comment,
+                                           'comment_form': comment_form})

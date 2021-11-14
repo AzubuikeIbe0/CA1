@@ -18,13 +18,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='photo',
             name='author',
-            field=models.ForeignKey(default=None, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+            field=models.ForeignKey(default=None,null=True, blank=True, editable=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
         ),
         migrations.AddField(
             model_name='photo',
             name='date',
-            field=models.DateTimeField(auto_now_add=True, default=datetime.datetime(2021, 10, 23, 10, 16, 49, 726460, tzinfo=utc)),
-            preserve_default=False,
+            field=models.DateTimeField(auto_now_add=True, default=datetime.datetime(2021, 10, 23, 10, 16, 49, 726460, tzinfo=utc))
         ),
         migrations.AddField(
             model_name='photo',

@@ -42,13 +42,13 @@
 
     </div>
 
-    <div class="col-6 col-md-6 col-sm-4 no-gutters ">
+    <div class="col-6 col-md-6 col-sm-4 no-gutters">
 
 
       <div class="my-3  justify-content-center text-dark navbar-collapse">
         <ul class="nav">
           <a href="{% url 'add' %}" class="btn btn-sm btn-outline-secondary btn-small m-1 text-dark">Upload Photo</a>
-         
+
           {% for category in categories %}
           <li class="nav-item">
             <a class="nav-link text-dark" href="{% url 'gallery' %}?category={{category.name}}">{{category.name}}</a>
@@ -57,7 +57,7 @@
           <li class="nav-item text-dark">
             <a class="nav-link active text-dark" aria-current="true" href="{% url 'gallery' %}">All Locations</a>
           </li>
-          
+
         </ul>
       </div>
 
@@ -71,7 +71,7 @@
   <div class="row no-gutters">
     {% for photo in photos %}
 
-    <div class="col-md-4 col-sm-6 col-xs-6 no-gutters border">
+    <div class="col-md-4 col-sm-6 col-xs-6 no-gutters border p-gallery">
       <div class="card shadow-0 m-5">
         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
           <img src="{{photo.image.url}}" class="img-fluid card-img-top imag-thumbnail" />
@@ -157,11 +157,6 @@
     <!-- Section: Images -->
   </div>
 
-  <!-- Grid container -->
-  <ul class="pager">
-    <li class="previous"><a href="#">Previous</a></li>
-    <li class="next"><a href="#">Next</a></li>
-  </ul>
 
 
 

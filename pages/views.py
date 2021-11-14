@@ -1,10 +1,13 @@
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from . import views
 
 
-class HomePageView(TemplateView):
+class HomePageView(LoginRequiredMixin, UserPassesTestMixin,TemplateView):
     template_name = 'home.html'
+
+    def test_func(self):
+        return self.request.user.email.endswith('.ie')
 
 def contact(request):
     return render(request, 'contact.html', {})

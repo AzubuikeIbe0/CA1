@@ -104,8 +104,9 @@
     display: flex;
     justify-items: center;
     align-items: center;
-    background-image: url("../images/thanos.jpg");
+    background-image: url("../images/banner.png");
     background-size: cover;
+
     top: 100;
     transition: 0.2s;
 }
@@ -113,11 +114,11 @@
 .banner2 {
   position: relative;
   width: 100%;
-  min-height: 50vh;
+  height: 100vh;
   display: flex;
   justify-items: center;
   align-items: center;
-  background-image: url("../images/thanos.jpg");
+  background-image: url("../images/banner.png");
   background-size: cover;
   top: 100;
   transition: 0.2s;
@@ -143,6 +144,7 @@
   border-radius: 30px;
   padding: 10px 40px;
 }
+
 
 
 section {

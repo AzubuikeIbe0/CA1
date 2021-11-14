@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django_comments',
      #local
     'accounts',
     'pages',
@@ -79,6 +81,8 @@ WSGI_APPLICATION = 'PhotographyWebsite.wsgi.application'
 
 
 # Database
+
+SITE_ID = 1
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
@@ -147,3 +151,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # blo_project/setting.py
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home' # new
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

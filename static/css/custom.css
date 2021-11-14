@@ -61,7 +61,7 @@
     color: var(--dark-color);
 }
 
-.nav-item .active::before {
+/* .nav-item .active::before {
     
   background: #000;
 
@@ -77,7 +77,7 @@
   height: 4px;
   background: #000;
 
-} 
+}  */
 
 .navbar-toggler {
   color: #fff;
@@ -182,7 +182,7 @@
       font-size: 16px;
       color: #ffffff;
       border-radius: 2px;
-      rotate: 90deg;
+      transform: rotate(90deg);
   }
 
     .imag-author:hover {
@@ -210,7 +210,7 @@
     display: flex;
     justify-items: center;
     align-items: center;
-    background-image: url("../images/cam.jpg");
+    background-image: url("../images/banner.png");
     background-size: cover;
     /* top: 100; */
     transition: 0.2s;
@@ -230,6 +230,34 @@
 .banner .content p {
     font-size: 1em;
     color: #fff;
+}
+
+.custom-shape-divider-bottom-1636912413 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom-1636912413 svg {
+    position: relative;
+    display: block;
+    width: calc(270% + 1.3px);
+    height: 500px;
+}
+
+.custom-shape-divider-bottom-1636912413 .shape-fill {
+    fill: #FFFFFF;
+}
+
+/** For tablet devices **/
+@media (min-width: 768px) and (max-width: 1023px) {
+    .custom-shape-divider-bottom-1636912413 svg {
+        width: calc(271% + 1.3px);
+        height: 268px;
+    }
 }
 
 .mtop {
@@ -307,12 +335,39 @@
 
 
 
+/*
+*
+* ==========================================
+*         ABOUT
+* ==========================================
+*
+*/
+
+.team img{
+  width: 250px;
+}
+
+.team1 img{
+  width: 100px;
+}
+
+.team2 img{
+  width: 500px;
+}
+
+.about-card .card {
+  display: block;
+  border: 1px solid #fff;
+}
+
+
+
  /****************************************************************************************************************
                                                         TEST GALLERY
 
   *****************************************************************************************************************/
 
-  .col-4:hover {
+  .p-gallery:hover {
     background: linear-gradient(to right, rgba(102, 126, 234, 0.5), rgba(118, 75, 162, 0.5))
   }
 
@@ -470,6 +525,12 @@
 .contact_form {
   border: 1px solid #000;
   padding: 40px;
+}
+
+.c-input .col{
+  padding-right: 0;
+  padding-left: 0;
+  margin: 0 5px;
 }
 
 
