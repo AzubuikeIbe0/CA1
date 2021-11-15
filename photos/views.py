@@ -97,3 +97,5 @@ def photo(request, slug):
                                            'comments': comments,
                                            'new_comment': new_comment,
                                            'comment_form': comment_form})
+
+    

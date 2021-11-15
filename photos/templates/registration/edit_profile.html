@@ -21,7 +21,8 @@
       <h3>Edit Profile</h3>
       <br />
       <form class="border p-5" method="POST">
-        {% csrf_token %} {{ form.as_p }}
+        {% csrf_token %} 
+        {{ form|crispy }}
         <input class="btn btn-success" type="submit" value="Update Profile" />
       </form>
       {% else %} You're not allowed here {% endif %}

@@ -7,7 +7,7 @@ class HomePageView(LoginRequiredMixin, UserPassesTestMixin,TemplateView):
     template_name = 'home.html'
 
     def test_func(self):
-        return self.request.user.email.endswith('.ie')
+        return self.request.user.profile
 
 def contact(request):
     return render(request, 'contact.html', {})

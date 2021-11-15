@@ -18,7 +18,7 @@
                 <div class="card p-5 mt-4 p-edit">
                     <form action="" method="post">
                         {% csrf_token %}
-                        {{ form.as_p }}
+                        {{ form|crispy }}
                         <button class="btn btn-info ml-2" type="submit">Update</button>
                     </form>
                 </div>

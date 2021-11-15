@@ -20,6 +20,9 @@ class UserEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def get_object(self):
         return self.request.user.profile
 
+    def test_func(self):
+        return self.request.user.profile
+
 class ProfilePageView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Profile
     template_name = 'registration/user_profile.html'
